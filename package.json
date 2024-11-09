@@ -1,5 +1,5 @@
 {
-  "name": "mindswap-sdk",
+  "name": "psc-sdk",
   "license": "MIT",
   "version": "1.0.2",
   "description": "🛠 An SDK for building applications on top of MSC-SWAP.",
@@ -10,7 +10,7 @@
   ],
   "repository": "",
   "keywords": [
-    "mindswap",
+    "psc",
     "msc"
   ],
   "module": "dist/sdk.esm.js",
