@@ -65,14 +65,14 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WMIND = {
+export const WPSC = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0x94E6F64f9a00bE3a7B353f55b303DC5eb0C9C396',
+    '0x0863c36D0f7ce3f0Dd2Cd52846D7ad6d99a49FC3',
     18,
-    'WMIND',
-    'Wrapped MIND',
-    'https://mindchain.info'
+    'WPSC',
+    'Wrapped Privix',
+    'https://privixai.org/'
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,

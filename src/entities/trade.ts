@@ -11,7 +11,7 @@ import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import { Pair } from './pair'
 import { Route } from './route'
-import { currencyEquals, Token, WMIND } from './token'
+import { currencyEquals, Token, WPSC } from './token'
 
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.
@@ -85,18 +85,18 @@ export interface BestTradeOptions {
 
 /**
  * Given a currency amount and a chain ID, returns the equivalent representation as the token amount.
- * In other words, if the currency is ETHER, returns the WMIND token amount for the given chain. Otherwise, returns
+ * In other words, if the currency is ETHER, returns the WPSC token amount for the given chain. Otherwise, returns
  * the input currency amount.
  */
 function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
-  if (currencyAmount.currency === ETHER) return new TokenAmount(WMIND[chainId], currencyAmount.raw)
+  if (currencyAmount.currency === ETHER) return new TokenAmount(WPSC[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
 }
 
 function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (currency instanceof Token) return currency
-  if (currency === ETHER) return WMIND[chainId]
+  if (currency === ETHER) return WPSC[chainId]
   invariant(false, 'CURRENCY')
 }
 

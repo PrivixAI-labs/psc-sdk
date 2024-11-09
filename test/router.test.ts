@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId, CurrencyAmount, ETHER, Pair, Percent, Route, Router, Token, TokenAmount, Trade, WMIND } from '../src'
+import { ChainId, CurrencyAmount, ETHER, Pair, Percent, Route, Router, Token, TokenAmount, Trade, WPSC } from '../src'
 import JSBI from 'jsbi'
 
 function checkDeadline(deadline: string[] | string): void {
@@ -15,7 +15,7 @@ describe('Router', () => {
 
   const pair_0_1 = new Pair(new TokenAmount(token0, JSBI.BigInt(1000)), new TokenAmount(token1, JSBI.BigInt(1000)))
 
-  const pair_weth_0 = new Pair(new TokenAmount(WMIND[ChainId.MAINNET], '1000'), new TokenAmount(token0, '1000'))
+  const pair_weth_0 = new Pair(new TokenAmount(WPSC[ChainId.MAINNET], '1000'), new TokenAmount(token0, '1000'))
 
   describe('#swapCallParameters', () => {
     describe('exact in', () => {
@@ -27,7 +27,7 @@ describe('Router', () => {
         expect(result.methodName).toEqual('swapExactETHForTokens')
         expect(result.args.slice(0, -1)).toEqual([
           '0x51',
-          [WMIND[ChainId.MAINNET].address, token0.address, token1.address],
+          [WPSC[ChainId.MAINNET].address, token0.address, token1.address],
           '0x0000000000000000000000000000000000000004'
         ])
         expect(result.value).toEqual('0x64')
@@ -46,7 +46,7 @@ describe('Router', () => {
         expect(result.methodName).toEqual('swapExactETHForTokens')
         expect(result.args).toEqual([
           '0x51',
-          [WMIND[ChainId.MAINNET].address, token0.address, token1.address],
+          [WPSC[ChainId.MAINNET].address, token0.address, token1.address],
           '0x0000000000000000000000000000000000000004',
           '0x32'
         ])
@@ -62,7 +62,7 @@ describe('Router', () => {
         expect(result.args.slice(0, -1)).toEqual([
           '0x64',
           '0x51',
-          [token1.address, token0.address, WMIND[ChainId.MAINNET].address],
+          [token1.address, token0.address, WPSC[ChainId.MAINNET].address],
           '0x0000000000000000000000000000000000000004'
         ])
         expect(result.value).toEqual('0x0')
@@ -93,7 +93,7 @@ describe('Router', () => {
         expect(result.methodName).toEqual('swapETHForExactTokens')
         expect(result.args.slice(0, -1)).toEqual([
           '0x64',
-          [WMIND[ChainId.MAINNET].address, token0.address, token1.address],
+          [WPSC[ChainId.MAINNET].address, token0.address, token1.address],
           '0x0000000000000000000000000000000000000004'
         ])
         expect(result.value).toEqual('0x80')
@@ -108,7 +108,7 @@ describe('Router', () => {
         expect(result.args.slice(0, -1)).toEqual([
           '0x64',
           '0x80',
-          [token1.address, token0.address, WMIND[ChainId.MAINNET].address],
+          [token1.address, token0.address, WPSC[ChainId.MAINNET].address],
           '0x0000000000000000000000000000000000000004'
         ])
         expect(result.value).toEqual('0x0')
@@ -145,7 +145,7 @@ describe('Router', () => {
           expect(result.methodName).toEqual('swapExactETHForTokensSupportingFeeOnTransferTokens')
           expect(result.args.slice(0, -1)).toEqual([
             '0x51',
-            [WMIND[ChainId.MAINNET].address, token0.address, token1.address],
+            [WPSC[ChainId.MAINNET].address, token0.address, token1.address],
             '0x0000000000000000000000000000000000000004'
           ])
           expect(result.value).toEqual('0x64')
@@ -165,7 +165,7 @@ describe('Router', () => {
           expect(result.args.slice(0, -1)).toEqual([
             '0x64',
             '0x51',
-            [token1.address, token0.address, WMIND[ChainId.MAINNET].address],
+            [token1.address, token0.address, WPSC[ChainId.MAINNET].address],
             '0x0000000000000000000000000000000000000004'
           ])
           expect(result.value).toEqual('0x0')
